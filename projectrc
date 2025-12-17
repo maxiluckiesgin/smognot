@@ -1,0 +1,11 @@
+rootdir=`dirname ${BASH_SOURCE[0]-$0}`
+rootdir=`cd $rootdir && pwd`
+venv="$rootdir/venv"
+if [ -d "$venv" ]; then
+    echo "Activating existing venv $venv"
+    source $venv/bin/activate
+else
+    echo "Creating new venv $venv"
+    python3 -m venv venv
+    source $venv/bin/activate
+fi
